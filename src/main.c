@@ -83,4 +83,6 @@ int main (int argc, char *argv[]) {
     printf("--------------------------------------------------\n");
 
     freeSystem(&s);
+
+    return EXIT_SUCCESS;
 }
