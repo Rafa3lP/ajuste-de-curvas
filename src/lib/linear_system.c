@@ -100,3 +100,12 @@ void gausianElimination(linearSystem *s) {
         s->x[i] = (s->b[i] - sum) / s->A[i][i];
     }
 }
+
+void fillSystem(linearSystem *s, float number) {
+    for(int i = 0; i < s->n; i++) {
+        for(int j = 0; j < s->n; j++) {
+            s->A[i][j] = number;
+        }
+        s->b[i] = number;
+    }
+}

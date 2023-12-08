@@ -1,16 +1,27 @@
-TARGET=prog
+TARGET=ajusteDeCurva
+SRC_DIR=src
+LIB_DIR=src/lib
+BUILD_DIR=build
 
-$(TARGET): main.o linear_system.a
-	gcc $^ -o $@
+SRCS := $(wildcard $(SRC_DIR)/*.c)
+OBJS := $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRCS))
+LIBOBJS := $(patsubst $(LIB_DIR)/%.c, $(BUILD_DIR)/%.o, $(wildcard $(LIB_DIR)/*.c))
 
-main.o: src/main.c
+$(TARGET): $(OBJS) $(BUILD_DIR)/linear_system.a
+	gcc $^ -o $@ -lm
+
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+	mkdir -p $(dir $@)
 	gcc -c $< -o $@
 
-linear_system.a: linear_system.o
+$(BUILD_DIR)/linear_system.a: $(LIBOBJS)
 	ar rcs $@ $^
 
-linear_system.o: src/lib/linear_system.c src/lib/linear_system.h
+$(BUILD_DIR)/%.o: $(LIB_DIR)/%.c $(LIB_DIR)/%.h
+	mkdir -p $(dir $@)
 	gcc -c -o $@ $<
 
 clean:
-	rm -f *.o *.a $(TARGET)
+	rm -rf $(BUILD_DIR) $(TARGET)
+
+.PHONY: clean

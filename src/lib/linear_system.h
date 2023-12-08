@@ -24,4 +24,6 @@ void printSolution(linearSystem *s);
 
 void printSystem(linearSystem *s);
 
+void fillSystem(linearSystem *s, float number);
+
 #endif
