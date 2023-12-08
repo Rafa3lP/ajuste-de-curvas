@@ -6,14 +6,14 @@ Este repositório contém o código fonte para o programa desenvolvido como part
 
 O trabalho tem como objetivo a implementação e cálculo do ajuste de curvas para conjuntos de dados fornecidos. A técnica utilizada é baseada no modelo exponencial definido por:
 
-\[ N = \beta_0 \cdot e^{\beta_1 \cdot t} \]
+![Equação](https://latex.codecogs.com/png.latex?N%20=%20%5Cbeta_0%20%5Ccdot%20e%5E%7B%5Cbeta_1%20%5Ccdot%20t%7D)
 
 onde:
-- \( N \) é a quantidade de carbono-14 na amostra,
-- \( t \) é a idade da amostra em anos,
-- \( \beta_0 \) e \( \beta_1 \) são coeficientes a serem determinados.
+- N é a quantidade de carbono-14 na amostra,
+- t é a idade da amostra em anos,
+- β0 e β1 são coeficientes a serem determinados.
 
-A partir do cálculo dos coeficientes \( \beta_0 \) e \( \beta_1 \), o programa é capaz de determinar a estimativa de idade de uma amostra, fornecida uma quantidade específica de carbono-14.
+A partir do cálculo dos coeficientes β0 e β1, o programa é capaz de determinar a estimativa de idade de uma amostra, fornecida uma quantidade específica de carbono-14.
 
 ## Compilação
 
